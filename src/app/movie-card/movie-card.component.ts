@@ -4,6 +4,7 @@ import { UserPageComponent } from '../user-page/user-page.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GenreViewComponent } from '../genre-view/genre-view.component';
 import { DirectorViewComponent } from '../director-view/director-view.component';
+import { SummaryViewComponent } from '../summary-view/summary-view.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -14,6 +15,7 @@ export class MovieCardComponent {
   movies: any[] = [];
   genre: any = '';
   director: any = '';
+  movie: any = '';
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -57,7 +59,6 @@ export class MovieCardComponent {
     this.fetchApiData.getDirector(name).subscribe((resp: any) => {
       this.director = resp;
       console.log(this.director);
-      console.log('Bio', this.director.Bio);
       this.dialog.open(DirectorViewComponent, {
         data: {
           Title: title,
@@ -65,6 +66,20 @@ export class MovieCardComponent {
           Bio: this.director.Bio,
           BirthYear: this.director.Birth,
           DeathYear: this.director.Death,
+        },
+      });
+      return this.director;
+    });
+  }
+
+  openSummary(title: string): void {
+    this.fetchApiData.getMovie(title).subscribe((resp: any) => {
+      this.movie = resp;
+      console.log(this.movie);
+      this.dialog.open(SummaryViewComponent, {
+        data: {
+          Title: title,
+          Summary: this.movie.Description,
         },
       });
       return this.director;
