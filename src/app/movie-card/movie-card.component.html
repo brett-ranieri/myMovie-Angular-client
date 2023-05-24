@@ -1,3 +1,12 @@
+<button
+  mat-raised-button
+  (click)="openUserPageDialog()"
+  style="margin-right: 10px"
+  color="primary"
+>
+  User Info
+</button>
+
 <mat-card *ngFor="let movie of movies; let i = index">
   <mat-dialog-content>
     <mat-card-title>{{ movie.Title }}</mat-card-title>
