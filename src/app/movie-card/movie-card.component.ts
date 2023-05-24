@@ -3,6 +3,7 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { UserPageComponent } from '../user-page/user-page.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GenreViewComponent } from '../genre-view/genre-view.component';
+import { DirectorViewComponent } from '../director-view/director-view.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -12,6 +13,8 @@ import { GenreViewComponent } from '../genre-view/genre-view.component';
 export class MovieCardComponent {
   movies: any[] = [];
   genre: any = '';
+  director: any = '';
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog
@@ -47,6 +50,24 @@ export class MovieCardComponent {
         },
       });
       return this.genre;
+    });
+  }
+
+  openDirector(name: string, title: string): void {
+    this.fetchApiData.getDirector(name).subscribe((resp: any) => {
+      this.director = resp;
+      console.log(this.director);
+      console.log('Bio', this.director.Bio);
+      this.dialog.open(DirectorViewComponent, {
+        data: {
+          Title: title,
+          Name: this.director.Name,
+          Bio: this.director.Bio,
+          BirthYear: this.director.Birth,
+          DeathYear: this.director.Death,
+        },
+      });
+      return this.director;
     });
   }
 }

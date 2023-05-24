@@ -1,0 +1,21 @@
+<mat-card class="dir-dialog">
+  <button
+    class="dir-close-button"
+    mat-stroked-button
+    aria-label="Close the genre details button"
+    mat-dialog-close
+    color="primary"
+  >
+    X
+  </button>
+  <mat-card-title>
+    <h1 class="dir-dialog-title">{{ data.Title }}</h1>
+  </mat-card-title>
+  <br />
+  <mat-dialog-content class="dir-dialog-content">
+    <h3>{{ data.Name }}</h3>
+    <h5>Birth:{{ data.BirthYear }}</h5>
+    <h5>Death:{{ data.DeathYear }}</h5>
+    <p>{{ data.Bio }}</p>
+  </mat-dialog-content>
+</mat-card>
