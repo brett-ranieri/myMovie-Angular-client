@@ -10,6 +10,7 @@ export class GenreViewComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
+      Title: string;
       Name: string;
       Description: string;
     }

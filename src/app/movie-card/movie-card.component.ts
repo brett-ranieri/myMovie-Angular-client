@@ -35,12 +35,13 @@ export class MovieCardComponent {
     });
   }
 
-  getGenre(name: string): void {
+  getGenre(name: string, title: string): void {
     this.fetchApiData.getGenre(name).subscribe((resp: any) => {
       this.genre = resp;
       console.log(this.genre);
       this.dialog.open(GenreViewComponent, {
         data: {
+          Title: title,
           Name: this.genre.Name,
           Description: this.genre.Description,
         },
