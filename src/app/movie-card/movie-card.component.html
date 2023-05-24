@@ -13,5 +13,13 @@
     <mat-card-subtitle
       ><img class="movie-image" src="{{ movie.ImagePath }}"
     /></mat-card-subtitle>
+    <button
+      mat-raised-button
+      (click)="getGenre(movie.Genre.Name)"
+      style="margin-right: 10px"
+      color="primary"
+    >
+      Genre
+    </button>
   </mat-dialog-content>
 </mat-card>

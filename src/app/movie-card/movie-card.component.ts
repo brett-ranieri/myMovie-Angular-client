@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { UserPageComponent } from '../user-page/user-page.component';
 import { MatDialog } from '@angular/material/dialog';
+import { GenreViewComponent } from '../genre-view/genre-view.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -10,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class MovieCardComponent {
   movies: any[] = [];
+  genre: any = '';
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog
@@ -30,6 +32,20 @@ export class MovieCardComponent {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
+    });
+  }
+
+  getGenre(name: string): void {
+    this.fetchApiData.getGenre(name).subscribe((resp: any) => {
+      this.genre = resp;
+      console.log(this.genre);
+      this.dialog.open(GenreViewComponent, {
+        data: {
+          Name: this.genre.Name,
+          Description: this.genre.Description,
+        },
+      });
+      return this.genre;
     });
   }
 }
