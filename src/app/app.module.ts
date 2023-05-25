@@ -22,6 +22,7 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { GenreViewComponent } from './genre-view/genre-view.component';
 import { DirectorViewComponent } from './director-view/director-view.component';
 import { SummaryViewComponent } from './summary-view/summary-view.component';
+import { UserUpdateFormComponent } from './user-update-form/user-update-form.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     GenreViewComponent,
     DirectorViewComponent,
     SummaryViewComponent,
+    UserUpdateFormComponent,
   ],
   imports: [
     BrowserModule,

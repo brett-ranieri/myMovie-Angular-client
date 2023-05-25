@@ -15,7 +15,9 @@
     <p>{{ user.Birthday }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary">Update Info</button>
+    <button mat-raised-button (click)="openUserUpdateDialog()" color="primary">
+      Update Info
+    </button>
     <button mat-raised-button color="primary">Delete Account</button>
   </mat-card-actions>
 </mat-card>

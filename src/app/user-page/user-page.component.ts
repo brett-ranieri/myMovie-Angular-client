@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UserUpdateFormComponent } from '../user-update-form/user-update-form.component';
 
 @Component({
   selector: 'app-user-page',
@@ -8,7 +10,10 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 })
 export class UserPageComponent {
   user: any = {};
-  constructor(public fetchApiData: FetchApiDataService) {}
+  constructor(
+    public fetchApiData: FetchApiDataService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getUserInfo();
@@ -19,6 +24,12 @@ export class UserPageComponent {
       this.user = resp;
       console.log('from func', this.user);
       return this.user;
+    });
+  }
+
+  openUserUpdateDialog(): void {
+    this.dialog.open(UserUpdateFormComponent, {
+      width: '280px',
     });
   }
 
