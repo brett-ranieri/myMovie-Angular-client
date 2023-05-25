@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { GenreViewComponent } from '../genre-view/genre-view.component';
 import { DirectorViewComponent } from '../director-view/director-view.component';
 import { SummaryViewComponent } from '../summary-view/summary-view.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -19,17 +20,16 @@ export class MovieCardComponent {
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getMovies();
     console.log(localStorage.getItem('userId'));
   }
-  openUserPageDialog(): void {
-    this.dialog.open(UserPageComponent, {
-      width: '500px',
-    });
+  openUserPage(): void {
+    this.router.navigate(['users']);
   }
 
   getMovies(): void {

@@ -26,6 +26,7 @@ import { SummaryViewComponent } from './summary-view/summary-view.component';
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
+  { path: 'users', component: UserPageComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
