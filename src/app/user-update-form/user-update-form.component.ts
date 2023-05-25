@@ -35,7 +35,7 @@ export class UserUpdateFormComponent implements OnInit {
       this.submittedData.Username = oldData.Username;
     }
     if (oldData.Password) {
-      this.submittedData.Username = oldData.Password;
+      this.submittedData.Password = oldData.Password;
     }
     if (oldData.Name) {
       this.submittedData.Name = oldData.Name;
