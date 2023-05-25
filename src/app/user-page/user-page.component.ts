@@ -21,4 +21,20 @@ export class UserPageComponent {
       return this.user;
     });
   }
+
+  // getUserInfo(): void {
+  //   this.fetchApiData.getAllUsers().subscribe((resp: any) => {
+  //     const userId = localStorage.getItem('userId');
+  //     console.log(userId);
+  //     var allUsers: any[] = resp;
+  //     var thisUser: any = {};
+  //     console.log('from func', allUsers);
+  //     thisUser = allUsers.filter((user) => {
+  //       console.log(user);
+  //       user._id = userId;
+  //     });
+  //     console.log('this user', thisUser);
+  //     return this.user;
+  //   });
+  // }
 }

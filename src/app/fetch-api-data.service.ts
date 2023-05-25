@@ -72,6 +72,18 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  getAllUsers(): Observable<any> {
+    const token = localStorage.getItem('token');
+
+    return this.http
+      .get(`${apiUrl}users`, {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
+
   getUser(): Observable<any> {
     const username = localStorage.getItem('username');
     console.log('from fetch', username);
@@ -85,6 +97,20 @@ export class FetchApiDataService {
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
+
+  // getUser(): Observable<any> {
+  //   const userId = localStorage.getItem('userId');
+  //   console.log('from fetch', userId);
+  //   const token = localStorage.getItem('token');
+
+  //   return this.http
+  //     .get(`${apiUrl}users/${userId}`, {
+  //       headers: new HttpHeaders({
+  //         Authorization: 'Bearer ' + token,
+  //       }),
+  //     })
+  //     .pipe(map(this.extractResponseData), catchError(this.handleError));
+  // }
 
   getFavoriteMovies(userId: string): Observable<any> {
     const token = localStorage.getItem('token');
