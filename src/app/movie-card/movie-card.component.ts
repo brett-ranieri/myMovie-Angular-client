@@ -93,7 +93,24 @@ export class MovieCardComponent {
     this.fetchApiData.addFavoriteMovie(id).subscribe(
       (resp: any) => {
         console.log(resp);
-        this.snackBar.open('User updated successfully!', 'OK', {
+        this.snackBar.open('Movie has been added to your favorites!', 'OK', {
+          duration: 3000,
+        });
+      },
+      (resp) => {
+        this.snackBar.open(resp, 'OK', {
+          duration: 2000,
+        });
+      }
+    );
+  }
+
+  removeFromFavorites(id: string): void {
+    console.log(id);
+    this.fetchApiData.removeFavoriteMovie(id).subscribe(
+      (resp: any) => {
+        console.log(resp);
+        this.snackBar.open('Movie has been removed from your favorites', 'OK', {
           duration: 3000,
         });
       },

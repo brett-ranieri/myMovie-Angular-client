@@ -45,5 +45,13 @@
     >
       <mat-icon>favorite_border</mat-icon>
     </button>
+    <button
+      mat-raised-button
+      (click)="removeFromFavorites(movie._id)"
+      style="margin-right: 10px"
+      color="primary"
+    >
+      remove
+    </button>
   </mat-dialog-content>
 </mat-card>
