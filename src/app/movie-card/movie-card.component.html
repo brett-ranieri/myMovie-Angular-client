@@ -39,6 +39,7 @@
     </button>
     <button
       mat-raised-button
+      *ngIf="!isFavorite(movie._id)"
       (click)="addToFavorites(movie._id)"
       style="margin-right: 10px"
       color="primary"
@@ -47,11 +48,12 @@
     </button>
     <button
       mat-raised-button
+      *ngIf="isFavorite(movie._id)"
       (click)="removeFromFavorites(movie._id)"
       style="margin-right: 10px"
       color="primary"
     >
-      remove
+      <mat-icon>favorite</mat-icon>
     </button>
   </mat-dialog-content>
 </mat-card>

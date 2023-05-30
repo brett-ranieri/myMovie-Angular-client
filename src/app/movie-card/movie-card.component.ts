@@ -52,6 +52,10 @@ export class MovieCardComponent {
     });
   }
 
+  isFavorite(id: string): boolean {
+    return this.favorites.includes(id);
+  }
+
   openGenre(name: string, title: string): void {
     this.fetchApiData.getGenre(name).subscribe((resp: any) => {
       this.genre = resp;
