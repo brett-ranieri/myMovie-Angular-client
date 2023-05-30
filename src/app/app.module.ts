@@ -24,6 +24,8 @@ import { DirectorViewComponent } from './director-view/director-view.component';
 import { SummaryViewComponent } from './summary-view/summary-view.component';
 import { UserUpdateFormComponent } from './user-update-form/user-update-form.component';
 
+import { MatIconModule } from '@angular/material/icon';
+
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
@@ -56,6 +58,7 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

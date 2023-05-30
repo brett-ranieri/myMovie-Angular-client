@@ -6,6 +6,7 @@ import { GenreViewComponent } from '../genre-view/genre-view.component';
 import { DirectorViewComponent } from '../director-view/director-view.component';
 import { SummaryViewComponent } from '../summary-view/summary-view.component';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-movie-card',
@@ -21,6 +22,7 @@ export class MovieCardComponent {
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
+    public snackBar: MatSnackBar,
     private router: Router
   ) {}
 
@@ -84,5 +86,22 @@ export class MovieCardComponent {
       });
       return this.director;
     });
+  }
+
+  addToFavorites(id: string): void {
+    console.log(id);
+    this.fetchApiData.addFavoriteMovie(id).subscribe(
+      (resp: any) => {
+        console.log(resp);
+        this.snackBar.open('User updated successfully!', 'OK', {
+          duration: 3000,
+        });
+      },
+      (resp) => {
+        this.snackBar.open(resp, 'OK', {
+          duration: 2000,
+        });
+      }
+    );
   }
 }

@@ -37,5 +37,13 @@
     >
       Summary
     </button>
+    <button
+      mat-raised-button
+      (click)="addToFavorites(movie._id)"
+      style="margin-right: 10px"
+      color="primary"
+    >
+      <mat-icon>favorite_border</mat-icon>
+    </button>
   </mat-dialog-content>
 </mat-card>
