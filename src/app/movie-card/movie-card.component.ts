@@ -18,6 +18,7 @@ export class MovieCardComponent {
   genre: any = '';
   director: any = '';
   movie: any = '';
+  favorites: any[] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -28,6 +29,7 @@ export class MovieCardComponent {
 
   ngOnInit(): void {
     this.getMovies();
+    this.getFavorites();
     console.log(localStorage.getItem('userId'));
   }
   openUserPage(): void {
@@ -39,6 +41,14 @@ export class MovieCardComponent {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
+    });
+  }
+
+  getFavorites(): void {
+    this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
+      this.favorites = resp;
+      console.log('from func ', this.favorites);
+      return this.favorites;
     });
   }
 
@@ -96,6 +106,8 @@ export class MovieCardComponent {
         this.snackBar.open('Movie has been added to your favorites!', 'OK', {
           duration: 3000,
         });
+        this.getFavorites();
+        console.log('from add fav ', this.favorites);
       },
       (resp) => {
         this.snackBar.open(resp, 'OK', {
@@ -113,6 +125,8 @@ export class MovieCardComponent {
         this.snackBar.open('Movie has been removed from your favorites', 'OK', {
           duration: 3000,
         });
+        this.getFavorites();
+        console.log('from remove fav ', this.favorites);
       },
       (resp) => {
         this.snackBar.open(resp, 'OK', {

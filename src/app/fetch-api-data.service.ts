@@ -112,10 +112,11 @@ export class FetchApiDataService {
   //     .pipe(map(this.extractResponseData), catchError(this.handleError));
   // }
 
-  getFavoriteMovies(userId: string): Observable<any> {
+  getFavoriteMovies(): Observable<any> {
+    const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + 'users/' + userId, {
+      .get(apiUrl + 'users/' + username, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
