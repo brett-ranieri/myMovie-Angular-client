@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title
+      >Are you sure you want to delete your account?</mat-card-title
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      This action cannot be undone. Once deleted all your data will be lost.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="closeDialog()" color="primary">
+      Eh, I changed my mind
+    </button>
+    <button mat-raised-button (click)="deleteUser()" color="primary">
+      Delete
+    </button>
+  </mat-card-actions>
+</mat-card>

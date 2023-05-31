@@ -30,7 +30,7 @@ export class MovieCardComponent {
   ngOnInit(): void {
     this.getMovies();
     this.getFavorites();
-    console.log(localStorage.getItem('userId'));
+    console.log(localStorage.getItem('token'));
   }
   openUserPage(): void {
     this.router.navigate(['users']);

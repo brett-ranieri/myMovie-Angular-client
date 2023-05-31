@@ -25,6 +25,7 @@ import { SummaryViewComponent } from './summary-view/summary-view.component';
 import { UserUpdateFormComponent } from './user-update-form/user-update-form.component';
 
 import { MatIconModule } from '@angular/material/icon';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     DirectorViewComponent,
     SummaryViewComponent,
     UserUpdateFormComponent,
+    DeleteUserComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserUpdateFormComponent } from '../user-update-form/user-update-form.component';
+import { DeleteUserComponent } from '../delete-user/delete-user.component';
 
 @Component({
   selector: 'app-user-page',
@@ -29,6 +30,12 @@ export class UserPageComponent {
 
   openUserUpdateDialog(): void {
     this.dialog.open(UserUpdateFormComponent, {
+      width: '280px',
+    });
+  }
+
+  openDeleteUserDialog(): void {
+    this.dialog.open(DeleteUserComponent, {
       width: '280px',
     });
   }
