@@ -190,6 +190,8 @@ export class FetchApiDataService {
     if (error.error instanceof ErrorEvent) {
       console.error('Some error occurred:', error.error.message);
     } else {
+      console.log(error);
+      console.log(error.error);
       console.error(
         `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
       );
