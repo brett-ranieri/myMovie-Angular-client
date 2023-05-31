@@ -36,6 +36,14 @@ export class MovieCardComponent {
     this.router.navigate(['users']);
   }
 
+  logoutUser(): void {
+    localStorage.clear();
+    this.snackBar.open('You have been succesfully logged out.', 'OK', {
+      duration: 3000,
+    });
+    this.router.navigate(['welcome']);
+  }
+
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
