@@ -26,6 +26,8 @@ import { UserUpdateFormComponent } from './user-update-form/user-update-form.com
 
 import { MatIconModule } from '@angular/material/icon';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -47,6 +49,7 @@ const appRoutes: Routes = [
     SummaryViewComponent,
     UserUpdateFormComponent,
     DeleteUserComponent,
+    NavigationBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
     MatIconModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

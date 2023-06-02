@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<button
+<app-navigation-bar></app-navigation-bar>
+<!-- <button
   mat-raised-button
   (click)="openUserPage()"
   style="margin-right: 10px"
@@ -14,14 +15,13 @@
   color="primary"
 >
   Logout
-</button>
+</button> -->
 
-<mat-card *ngFor="let movie of movies; let i = index">
+<mat-card *ngFor="let movie of movies; let i = index" class="movie-card">
   <mat-dialog-content>
     <mat-card-title>{{ movie.Title }}</mat-card-title>
-    <mat-card-subtitle
-      ><img class="movie-image" src="{{ movie.ImagePath }}"
-    /></mat-card-subtitle>
+    <mat-card-subtitle>Directed by {{ movie.Director.Name }}</mat-card-subtitle>
+    <img class="movie-image" src="{{ movie.ImagePath }}" />
     <button
       mat-raised-button
       (click)="openGenre(movie.Genre.Name, movie.Title)"
