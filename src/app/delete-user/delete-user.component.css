@@ -1,0 +1,32 @@
+.delete-user-container {
+  /* width: 65%; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2em;
+}
+
+.delete-user-header {
+  display: inline-block;
+  color: #69f0ae;
+  text-align: center;
+  background-color: rgb(66, 66, 66);
+  width: 100%;
+  padding: 0px;
+  /* padding-top: 1em; */
+  padding-bottom: 1.5em;
+}
+
+.delete-user-button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 1em;
+  gap: 5px;
+  place-items: center;
+}
+
+.warning-text {
+  color: rgb(172, 172, 172);
+  font-weight: 500;
+}

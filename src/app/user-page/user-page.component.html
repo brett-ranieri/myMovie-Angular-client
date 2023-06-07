@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <app-navigation-bar></app-navigation-bar>
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Welcome {{ user.Name }}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <h3>Username:</h3>
-    <p>{{ user.Username }}</p>
-    <h3>Name:</h3>
-    <p>{{ user.Name }}</p>
-    <h3>Email:</h3>
-    <p>{{ user.Email }}</p>
-    <h3>Birthday:</h3>
-    <p>{{ user.Birthday }}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="openUserUpdateDialog()" color="primary">
-      Update Info
-    </button>
-    <button mat-raised-button (click)="openDeleteUserDialog()" color="primary">
-      Delete Account
-    </button>
-  </mat-card-actions>
-</mat-card>
+<div class="user-page-container">
+  <mat-card class="user-page-card">
+    <mat-card-header class="user-page-header">
+      <mat-card-title> Welcome {{ user.Name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="user-page-content">
+      <h3 class="highlight-text">Username:</h3>
+      <p>{{ user.Username }}</p>
+      <h3 class="highlight-text">Name:</h3>
+      <p>{{ user.Name }}</p>
+      <h3 class="highlight-text">Email:</h3>
+      <p>{{ user.Email }}</p>
+      <h3 class="highlight-text">Birthday:</h3>
+      <p>{{ user.Birthday | date : "longDate" }}</p>
+    </mat-card-content>
+    <div class="user-page-button-container">
+      <button
+        class="user-page-button"
+        mat-raised-button
+        (click)="openUserUpdateDialog()"
+        color="primary"
+      >
+        Update Info
+      </button>
+      <button
+        class="user-page-button delete"
+        mat-raised-button
+        color="warn"
+        (click)="openDeleteUserDialog()"
+      >
+        Delete Account
+      </button>
+    </div>
+  </mat-card>
+</div>

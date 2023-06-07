@@ -32,17 +32,17 @@ export class MovieCardComponent {
     this.getFavorites();
     console.log(localStorage.getItem('token'));
   }
-  openUserPage(): void {
-    this.router.navigate(['users']);
-  }
+  // openUserPage(): void {
+  //   this.router.navigate(['users']);
+  // }
 
-  logoutUser(): void {
-    localStorage.clear();
-    this.snackBar.open('You have been succesfully logged out.', 'OK', {
-      duration: 3000,
-    });
-    this.router.navigate(['welcome']);
-  }
+  // logoutUser(): void {
+  //   localStorage.clear();
+  //   this.snackBar.open('You have been succesfully logged out.', 'OK', {
+  //     duration: 3000,
+  //   });
+  //   this.router.navigate(['welcome']);
+  // }
 
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {

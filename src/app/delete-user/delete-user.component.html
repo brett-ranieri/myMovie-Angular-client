@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<mat-card>
-  <mat-card-header>
+<mat-card class="delete-user-container">
+  <mat-card-header class="delete-user-header">
     <mat-card-title
       >Are you sure you want to delete your account?</mat-card-title
     >
   </mat-card-header>
-  <mat-card-content>
-    <p>
-      This action cannot be undone. Once deleted all your data will be lost.
-    </p>
+  <mat-card-content class="warning-text">
+    <p>This action cannot be undone.</p>
+    <p>Once deleted all your data will be lost...like, forever.</p>
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-actions class="delete-user-button-container">
     <button mat-raised-button (click)="closeDialog()" color="primary">
       Eh, I changed my mind
     </button>
-    <button mat-raised-button (click)="deleteUser()" color="primary">
-      Delete
+    <button mat-raised-button (click)="deleteUser()" color="warn">
+      Delete it all!
     </button>
   </mat-card-actions>
 </mat-card>

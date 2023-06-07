@@ -1,0 +1,29 @@
+.user-reg-container {
+  /* width: 65%; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2em;
+}
+
+.user-reg-header {
+  display: inline-block;
+  color: #69f0ae;
+  text-align: center;
+  background-color: rgb(66, 66, 66);
+  width: 100%;
+  padding: 0px;
+  /* padding-top: 1em; */
+  padding-bottom: 1.5em;
+}
+
+.user-reg-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.user-reg-button {
+  margin-bottom: 1em;
+}
