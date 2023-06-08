@@ -1,0 +1,50 @@
+.user-page-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: dimgray;
+  height: 100%;
+}
+
+.user-page-card {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2em;
+  background-color: grey;
+}
+
+.user-page-button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 1.5em;
+  gap: 5px;
+  place-items: center;
+}
+
+.user-page-button {
+  width: 200px;
+}
+
+.user-page-header {
+  display: inline-block;
+  color: #69f0ae;
+  text-align: center;
+  background-color: rgb(66, 66, 66);
+  width: 100%;
+  padding: 0px;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.highlight-text {
+  color: #7b1fa2;
+  font-weight: 700;
+}
+
+.user-page-content {
+  width: 80%;
+  margin-top: 1em;
+}

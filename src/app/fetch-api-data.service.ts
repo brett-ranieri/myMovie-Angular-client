@@ -72,10 +72,11 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  getUser(userId: string): Observable<any> {
+  getAllUsers(): Observable<any> {
     const token = localStorage.getItem('token');
+
     return this.http
-      .get(apiUrl + 'users/' + userId, {
+      .get(`${apiUrl}users`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -83,10 +84,39 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  getFavoriteMovies(userId: string): Observable<any> {
+  getUser(): Observable<any> {
+    const username = localStorage.getItem('username');
+    console.log('from fetch', username);
+    const token = localStorage.getItem('token');
+
+    return this.http
+      .get(`${apiUrl}users/${username}`, {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
+
+  // getUser(): Observable<any> {
+  //   const userId = localStorage.getItem('userId');
+  //   console.log('from fetch', userId);
+  //   const token = localStorage.getItem('token');
+
+  //   return this.http
+  //     .get(`${apiUrl}users/${userId}`, {
+  //       headers: new HttpHeaders({
+  //         Authorization: 'Bearer ' + token,
+  //       }),
+  //     })
+  //     .pipe(map(this.extractResponseData), catchError(this.handleError));
+  // }
+
+  getFavoriteMovies(): Observable<any> {
+    const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + 'users/' + userId, {
+      .get(apiUrl + 'users/' + username, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -101,12 +131,17 @@ export class FetchApiDataService {
   addFavoriteMovie(movieId: string): Observable<any> {
     const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
+    console.log(token);
     return this.http
-      .post(apiUrl + 'users/' + username + '/movies/' + movieId, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
-      })
+      .put(
+        apiUrl + 'users/' + username + '/movies/' + movieId,
+        {},
+        {
+          headers: new HttpHeaders({
+            Authorization: 'Bearer ' + token,
+          }),
+        }
+      )
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
@@ -138,7 +173,7 @@ export class FetchApiDataService {
     const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
     return this.http
-      .post(apiUrl + 'users/' + username + '/remove/' + movieId, {
+      .delete(apiUrl + 'users/' + username + '/remove/' + movieId, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -155,6 +190,8 @@ export class FetchApiDataService {
     if (error.error instanceof ErrorEvent) {
       console.error('Some error occurred:', error.error.message);
     } else {
+      console.log(error);
+      console.log(error.error);
       console.error(
         `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
       );

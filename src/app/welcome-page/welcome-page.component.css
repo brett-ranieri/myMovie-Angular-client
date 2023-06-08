@@ -1,0 +1,26 @@
+.main-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: dimgray;
+  height: 100%;
+}
+
+.welcome-card {
+  margin-top: 30%;
+  width: 70%;
+  min-width: 300px;
+  max-width: 500px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.welcome-text {
+  padding-bottom: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  color: #69f0ae;
+}

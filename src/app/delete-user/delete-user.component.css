@@ -1,4 +1,4 @@
-.user-reg-container {
+.delete-user-container {
   /* width: 65%; */
   display: flex;
   align-items: center;
@@ -6,7 +6,7 @@
   margin-top: 2em;
 }
 
-.user-reg-header {
+.delete-user-header {
   display: inline-block;
   color: #69f0ae;
   text-align: center;
@@ -17,13 +17,16 @@
   padding-bottom: 1.5em;
 }
 
-.user-reg-form {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 1em;
+.delete-user-button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 1em;
+  gap: 5px;
+  place-items: center;
 }
 
-.user-reg-button {
-  margin-bottom: 1em;
+.warning-text {
+  color: rgb(172, 172, 172);
+  font-weight: 500;
 }

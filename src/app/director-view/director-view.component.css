@@ -1,0 +1,27 @@
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.dir-dialog {
+  background-color: grey;
+}
+
+.dir-dialog-header {
+  background-color: rgb(99, 99, 99);
+}
+
+.dir-dialog-title {
+  color: #69f0ae;
+}
+
+.highlight-text {
+  color: #7b1fa2;
+  font-weight: 700;
+}
+
+.dir-close-button {
+  height: 30px;
+  color: #fff;
+  font-weight: 700;
+  background-color: #7b1fa2;
+}
