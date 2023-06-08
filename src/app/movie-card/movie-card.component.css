@@ -1,0 +1,36 @@
+.movie-image {
+  width: 200px;
+  justify-self: center;
+}
+
+.movie-card {
+  width: 280px;
+  margin: 10px;
+}
+
+.movie-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: dimgray;
+}
+
+.movie-card-header {
+  margin-left: 1em;
+  margin-top: 1em;
+  color: #69f0ae;
+}
+
+.movie-card-body {
+  display: grid;
+  margin-top: 0.5em;
+}
+
+.movie-card-button-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 1em;
+  gap: 5px;
+}

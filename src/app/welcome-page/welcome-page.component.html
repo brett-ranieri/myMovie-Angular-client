@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<div class="main-page">
+  <mat-card class="welcome-card">
+    <mat-card-header>
+      <h1 class="welcome-text">Welcome to myMovies!</h1>
+    </mat-card-header>
+    <mat-card-content class="welcome-content">
+      <button
+        mat-raised-button
+        (click)="openUserRegistrationDialog()"
+        style="margin-right: 10px"
+        color="primary"
+      >
+        Sign Up
+      </button>
+      <button mat-raised-button (click)="openUserLoginDialog()" color="accent">
+        Login
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
