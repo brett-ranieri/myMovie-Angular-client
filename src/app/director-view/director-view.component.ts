@@ -6,6 +6,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './director-view.component.html',
   styleUrls: ['./director-view.component.css'],
 })
+/**
+ * Class to display director data from movie card component in dialog.
+ */
 export class DirectorViewComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA)
