@@ -21,8 +21,7 @@ export class DeleteUserComponent {
 
   deleteUser(): void {
     this.fetchApiData.deleteUser().subscribe(
-      (result) => {
-        console.log(result);
+      () => {
         localStorage.clear();
         this.dialogRef.close();
         this.router.navigate(['welcome']);
