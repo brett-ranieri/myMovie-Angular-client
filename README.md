@@ -19,7 +19,8 @@ Production:
 - Navigate to following URL in any browser:
   https://brett-ranieri.github.io/myMovie-Angular-client/
 
-TO GAIN ACCESS:
+**TO GAIN ACCESS**
+
 Create your own account on Signup page or use the following credentials:
   - Username: tester
   - Password: password
