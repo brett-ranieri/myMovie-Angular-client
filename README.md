@@ -12,7 +12,7 @@ Development:
 
 - Navigate to root folder in terminal
 - Run the following: `ng serve --open`
-- In browser, navigate to http://localhost:1400
+- In browser, navigate to http://localhost:4000
 
 Production:
 
