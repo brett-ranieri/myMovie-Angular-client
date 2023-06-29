@@ -40,7 +40,6 @@ export class UserLoginFormComponent implements OnInit {
   loginUser(): void {
     this.fetchApiData.userLogin(this.loginData).subscribe(
       (result) => {
-        console.log(result);
         localStorage.setItem('username', result.user.Username);
         localStorage.setItem('token', result.token);
         localStorage.setItem('userId', result.user._id);

@@ -29,7 +29,6 @@ export class UserPageComponent {
   getUserInfo(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
-      console.log('from func', this.user);
       return this.user;
     });
   }
@@ -49,20 +48,4 @@ export class UserPageComponent {
       width: '280px',
     });
   }
-
-  // getUserInfo(): void {
-  //   this.fetchApiData.getAllUsers().subscribe((resp: any) => {
-  //     const userId = localStorage.getItem('userId');
-  //     console.log(userId);
-  //     var allUsers: any[] = resp;
-  //     var thisUser: any = {};
-  //     console.log('from func', allUsers);
-  //     thisUser = allUsers.filter((user) => {
-  //       console.log(user);
-  //       user._id = userId;
-  //     });
-  //     console.log('this user', thisUser);
-  //     return this.user;
-  //   });
-  // }
 }

@@ -55,7 +55,6 @@ export class UserUpdateFormComponent implements OnInit {
     if (oldData.Birthday) {
       this.submittedData.Birthday = oldData.Birthday;
     }
-    console.log(this.submittedData);
   }
   /**
    * Calls editUser() from fetch-api-data.service.ts
@@ -67,8 +66,7 @@ export class UserUpdateFormComponent implements OnInit {
   updateUser(): void {
     this.reviewData();
     this.fetchApiData.editUser(this.submittedData).subscribe(
-      (result) => {
-        console.log(result);
+      () => {
         this.dialogRef.close();
         this.snackBar.open('User updated successfully!', 'OK', {
           duration: 3000,
