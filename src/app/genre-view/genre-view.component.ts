@@ -6,6 +6,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './genre-view.component.html',
   styleUrls: ['./genre-view.component.css'],
 })
+/**
+ * Class to display genre data from movie card component in dialog.
+ */
 export class GenreViewComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA)

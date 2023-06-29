@@ -13,6 +13,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.css'],
 })
+/**
+ * Class that fetches and displays all movies in the database in a card format.
+ */
 export class MovieCardComponent {
   movies: any[] = [];
   genre: any = '';
@@ -44,6 +47,10 @@ export class MovieCardComponent {
   //   this.router.navigate(['welcome']);
   // }
 
+  /**
+   * Calls getAllMovies() from fetch-api-data.service.ts
+   * @returns An array of objects, each containing all data about a specific movie.
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -51,7 +58,10 @@ export class MovieCardComponent {
       return this.movies;
     });
   }
-
+  /**
+   * Calls getFavoriteMovies() from fetch-api-data.service.ts
+   * @returns An array of movie Ids that have been favorited by user, will be empty by default until updated by user.
+   */
   getFavorites(): void {
     this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
       this.favorites = resp;
@@ -59,11 +69,20 @@ export class MovieCardComponent {
       return this.favorites;
     });
   }
-
+  /**
+   * Checks if the favorite movies array contains the specified movieId
+   * @param id id of specified movie
+   * @returns a boolean value
+   */
   isFavorite(id: string): boolean {
     return this.favorites.includes(id);
   }
-
+  /**
+   * Calls getGenre() from fetch-api-data.service.ts
+   * @param name genre name
+   * @param title title of specified movie
+   * @returns opens dialog to display movie title, name of genre, and genre description
+   */
   openGenre(name: string, title: string): void {
     this.fetchApiData.getGenre(name).subscribe((resp: any) => {
       this.genre = resp;
@@ -75,10 +94,15 @@ export class MovieCardComponent {
           Description: this.genre.Description,
         },
       });
-      return this.genre;
+      // return this.genre;
     });
   }
-
+  /**
+   * Calls getDirector() from fetch-api-data.service.ts
+   * @param name director name
+   * @param title title of specified movie
+   * @returns opens dialog to display movie title, name of director, director bio, director birth year and director death year
+   */
   openDirector(name: string, title: string): void {
     this.fetchApiData.getDirector(name).subscribe((resp: any) => {
       this.director = resp;
@@ -92,10 +116,14 @@ export class MovieCardComponent {
           DeathYear: this.director.Death,
         },
       });
-      return this.director;
+      // return this.director;
     });
   }
-
+  /**
+   * Calls getMovie() from fetch-api-data.service.ts
+   * @param title title of specified movie
+   * @returns opens dialog to display movie title and movie summary
+   */
   openSummary(title: string): void {
     this.fetchApiData.getMovie(title).subscribe((resp: any) => {
       this.movie = resp;
@@ -106,10 +134,13 @@ export class MovieCardComponent {
           Summary: this.movie.Description,
         },
       });
-      return this.director;
+      // return this.director;
     });
   }
-
+  /**
+   * Calls addFavoriteMovie() from fetch-api-data.service.ts, adds id to favorite movies array
+   * @param id id of specified movie
+   */
   addToFavorites(id: string): void {
     console.log(id);
     this.fetchApiData.addFavoriteMovie(id).subscribe(
@@ -128,7 +159,10 @@ export class MovieCardComponent {
       }
     );
   }
-
+  /**
+   * Calls removeFavoriteMovie() from fetch-api-data.service.ts, removes id from favorite movies array
+   * @param id
+   */
   removeFromFavorites(id: string): void {
     console.log(id);
     this.fetchApiData.removeFavoriteMovie(id).subscribe(

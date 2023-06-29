@@ -9,6 +9,17 @@ import { Router } from '@angular/router';
   templateUrl: './user-login-form.component.html',
   styleUrls: ['./user-login-form.component.css'],
 })
+/**
+ * Modal that is opened from the Welcome Page.
+ * Form contains inputs for username* and password*
+ *
+ * *indicates a required field
+ *
+ * If user provides accurate credentials they will be logged in and navigated to movies page.
+ *
+ * *API will provide a token after login that will be stored in local storage and used for all subsequent API calls.
+ *
+ */
 export class UserLoginFormComponent implements OnInit {
   @Input() loginData = { Username: '', Password: '' };
 
@@ -21,6 +32,11 @@ export class UserLoginFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Calls userLogin() from fetch-api-data.service.ts
+   *
+   * Data provided by user in form fields sent as object. Object returned from API with token, which is stored in local storage.
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.loginData).subscribe(
       (result) => {
