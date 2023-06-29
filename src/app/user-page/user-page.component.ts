@@ -9,6 +9,9 @@ import { DeleteUserComponent } from '../delete-user/delete-user.component';
   templateUrl: './user-page.component.html',
   styleUrls: ['./user-page.component.css'],
 })
+/**
+ * Class that displays user info and gives user an opportunity to edit information
+ */
 export class UserPageComponent {
   user: any = {};
   constructor(
@@ -19,20 +22,27 @@ export class UserPageComponent {
   ngOnInit(): void {
     this.getUserInfo();
   }
-
+  /**
+   * Calls getUser() from fetch-api-data.service.ts
+   * @returns Object containing key:value pairs of all saved user information
+   */
   getUserInfo(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
       return this.user;
     });
   }
-
+  /**
+   * Opens dialog that displays form for user to update information
+   */
   openUserUpdateDialog(): void {
     this.dialog.open(UserUpdateFormComponent, {
       width: '280px',
     });
   }
-
+  /**
+   * Opens dialog that gives user option to delete their account
+   */
   openDeleteUserDialog(): void {
     this.dialog.open(DeleteUserComponent, {
       width: '280px',

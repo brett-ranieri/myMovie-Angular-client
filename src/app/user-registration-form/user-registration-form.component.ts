@@ -11,6 +11,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './user-registration-form.component.html',
   styleUrls: ['./user-registration-form.component.css'],
 })
+
+/**
+ * Modal that is opened from the Welcome Page.
+ * Form contains inputs for username*, password*, name*, email* and birthday.
+ *
+ * *indicates a required field
+ *
+ * If user is succesfully registered they will then be able to log in and browse movies page.
+ *
+ */
 export class UserRegistrationFormComponent implements OnInit {
   @Input() userData = {
     Username: '',
@@ -28,6 +38,11 @@ export class UserRegistrationFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Calls userRegistration() from fetch-api-data.service.ts
+   *
+   * Data provided by user in form fields sent as object. Object returned from API with additional information on user profile.
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(
       (result) => {
@@ -35,7 +50,7 @@ export class UserRegistrationFormComponent implements OnInit {
         this.snackBar.open(
           'Welcome ' +
             result.Name +
-            '! You can now log in to browse the movies',
+            '! You can now log in to browse the movies.',
           'OK',
           {
             duration: 2000,

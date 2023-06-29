@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
   templateUrl: './user-update-form.component.html',
   styleUrls: ['./user-update-form.component.css'],
 })
+/**
+ * Class that allows the user to update their stored information
+ */
 export class UserUpdateFormComponent implements OnInit {
   submittedData: any = {};
   @Input() updatedUserData = {
@@ -28,7 +31,13 @@ export class UserUpdateFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  //Reviews data and creates new object containing only key/value pairs that were changed. Then will use new object to edit User, allowing use to only edit desired fields and not require all fields be changed.
+  //Reviews data and
+  /**
+   * Function that reviews data submitted by user in form.
+   *
+   * Creates new object containing only key/value pairs that were changed, allowing use to only edit desired fields and not require all fields be changed.
+   * @returns edited object only containing key:value pairs that have been updated.
+   */
   reviewData(): void {
     const oldData = this.updatedUserData;
     if (oldData.Username) {
@@ -47,11 +56,17 @@ export class UserUpdateFormComponent implements OnInit {
       this.submittedData.Birthday = oldData.Birthday;
     }
   }
-
+  /**
+   * Calls editUser() from fetch-api-data.service.ts
+   *
+   * Sends submittedData in an object to API to update desired fields.
+   * Will navigate user back to movie page.
+   * Updates username in local storage
+   */
   updateUser(): void {
     this.reviewData();
     this.fetchApiData.editUser(this.submittedData).subscribe(
-      (result) => {
+      () => {
         this.dialogRef.close();
         this.snackBar.open('User updated successfully!', 'OK', {
           duration: 3000,

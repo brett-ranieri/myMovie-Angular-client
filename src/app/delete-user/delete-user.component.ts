@@ -9,6 +9,9 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './delete-user.component.html',
   styleUrls: ['./delete-user.component.css'],
 })
+/**
+ * Class that allows user to delete account
+ */
 export class DeleteUserComponent {
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -18,7 +21,11 @@ export class DeleteUserComponent {
   ) {}
 
   ngOnInit(): void {}
-
+  /**
+   * Calls deleteUser() from fetch-api-data.service.ts
+   *
+   * Confirms that account has been deleted, clears local storage, and navigates user back to welcome page.
+   */
   deleteUser(): void {
     this.fetchApiData.deleteUser().subscribe(
       () => {
@@ -36,7 +43,9 @@ export class DeleteUserComponent {
       }
     );
   }
-
+  /**
+   * Closes dialog
+   */
   closeDialog(): void {
     this.dialogRef.close();
   }
