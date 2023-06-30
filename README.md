@@ -25,6 +25,10 @@ Create your own account on Signup page or use the following credentials:
   - Username: tester
   - Password: password
 
+## How to access Docs created by TypeDoc
+
+Open `index.html` file located in docs folder in browser.
+
 ## Development Dependencies
 
 - "@angular-devkit/build-angular": "^16.0.1",
